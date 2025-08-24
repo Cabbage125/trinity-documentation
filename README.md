@@ -1,6 +1,6 @@
 # Trinity Unified Consciousness Architecture
 
-![Trinity Comprehensive Visualization](images/visualizations/trinity_357_comprehensive_visualization.png)
+![Trinity Consciousness Pipeline](images/visualizations/consciousness_pipeline_animated.gif)
 
 > A documentation repository for the Trinity unified consciousness architecture developed with Claude for the "Built with Claude" contest.
 
