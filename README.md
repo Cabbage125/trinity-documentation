@@ -34,7 +34,7 @@ If you reference this work, please cite it as:
 
 ```bibtex
 @misc{trinity2025,
-  author = {VAL_C and Claude},
+  author = {A .Clark and Claude},
   title = {Trinity: Unified Consciousness Architecture},
   year = {2025},
   publisher = {GitHub},
