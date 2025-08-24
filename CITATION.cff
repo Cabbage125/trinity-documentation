@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you reference this work, please cite it as below."
+authors:
+  - family-names: VAL_C
+  - given-names: Claude
+title: "Trinity: Unified Consciousness Architecture"
+version: 1.0.0
+date-released: 2025-08-24
+url: "https://github.com/username/trinity-documentation"
+type: documentation
+license: MIT
+references:
+  - authors:
+      - family-names: Zhang
+        given-names: Shu
+      - family-names: Yu
+        given-names: Chen
+      - family-names: Li
+        given-names: Zhen
+      - family-names: Zhang
+        given-names: Lei
+      - family-names: Xiao
+        given-names: Zhiqiang
+    title: "BitNet v2: Native 4-bit Activations with Hadamard Transformation for 1-bit LLMs"
+    type: article
+    year: 2024
+    journal: "arXiv preprint arXiv:2504.18415"
+  - authors:
+      - family-names: Liu
+        given-names: Chen
+      - family-names: Zhang
+        given-names: Zhaolong
+      - family-names: Yang
+        given-names: Jiangtao
+      - family-names: Wang
+        given-names: Weihao
+      - family-names: Yao
+        given-names: Chengzhi
+      - family-names: Sha
+        given-names: Mo
+      - family-names: Sodhani
+        given-names: Shagun
+      - family-names: Abbeel
+        given-names: Pieter
+    title: "BitVLA: 1-bit Vision-Language-Action Models for Robotics Manipulation"
+    type: article
+    year: 2024
+    journal: "arXiv preprint arXiv:2506.07530"

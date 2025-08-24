@@ -1,0 +1,10 @@
+# Architecture Comparison Animations
+
+This directory will contain side-by-side comparisons between traditional component-based architectures and Trinity's unified approach.
+
+Expected animations:
+- Component-based vs unified processing
+- Performance difference visualizations
+- Architectural paradigm shift demonstrations
+
+Placeholder file to maintain directory structure.

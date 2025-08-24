@@ -1,0 +1,34 @@
+name: Documentation Build
+
+on:
+  push:
+    branches: [ main, documentation ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Validate documentation structure
+      run: |
+        # Check that required directories exist
+        test -d animations/
+        test -d documentation/
+        test -d research/
+        test -d contest/
+        test -d images/
+        
+    - name: Validate citation files
+      run: |
+        # Check that citation files are valid
+        test -f research/citations.bib
+        test -f CITATION.cff

@@ -1,0 +1,115 @@
+name: Animation Preview Generation
+
+on:
+  push:
+    paths:
+      - 'animations/**/*'
+  pull_request:
+    paths:
+      - 'animations/**/*'
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        pip install Pillow imageio moviepy
+        sudo apt-get update
+        sudo apt-get install -y ffmpeg
+        
+    - name: Generate animation previews
+      run: |
+        python3 << 'EOF'
+        import os
+        import glob
+        from pathlib import Path
+        
+        # Create preview directory
+        preview_dir = Path('animation_previews')
+        preview_dir.mkdir(exist_ok=True)
+        
+        # Find all animation files
+        animation_types = ['*.gif', '*.mp4', '*.webm']
+        animations = []
+        
+        for pattern in animation_types:
+            animations.extend(glob.glob(f'animations/**/{pattern}', recursive=True))
+        
+        print(f"Found {len(animations)} animation files")
+        
+        # Generate preview HTML
+        html_content = """
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Trinity Animation Previews</title>
+            <style>
+                body { font-family: sans-serif; margin: 20px; }
+                .animation { margin: 20px 0; padding: 20px; border: 1px solid #ddd; }
+                video, img { max-width: 500px; height: auto; }
+            </style>
+        </head>
+        <body>
+            <h1>Trinity Animation Previews</h1>
+        """
+        
+        for anim in animations:
+            category = Path(anim).parent.name
+            filename = Path(anim).name
+            
+            if anim.endswith('.gif'):
+                html_content += f"""
+                <div class="animation">
+                    <h3>{category}: {filename}</h3>
+                    <img src="../{anim}" alt="{filename}" />
+                </div>
+                """
+            else:  # mp4, webm
+                html_content += f"""
+                <div class="animation">
+                    <h3>{category}: {filename}</h3>
+                    <video controls>
+                        <source src="../{anim}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                """
+        
+        html_content += """
+        </body>
+        </html>
+        """
+        
+        with open('animation_previews/index.html', 'w') as f:
+            f.write(html_content)
+            
+        print("Generated animation preview page")
+        EOF
+        
+    - name: Upload preview artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: animation-previews
+        path: animation_previews/
+        
+    - name: Comment on PR with preview
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          github.rest.issues.createComment({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            body: '🎬 Animation previews have been generated! Check the workflow artifacts for the preview page.'
+          })
