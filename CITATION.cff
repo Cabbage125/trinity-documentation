@@ -1,13 +1,13 @@
 cff-version: 1.2.0
 message: "If you reference this work, please cite it as below."
 authors:
-  - family-names: VAL_C
-  - given-names: Claude
+  - family-names: Clark
+  - given-names: A.
 title: "Trinity: Unified Consciousness Architecture"
 version: 1.0.0
 date-released: 2025-08-24
-url: "https://github.com/username/trinity-documentation"
-type: documentation
+url: "https://github.com/Cabbage125/trinity-documentation"
+type: documentationh
 license: MIT
 references:
   - authors:
@@ -34,15 +34,3 @@ references:
         given-names: Jiangtao
       - family-names: Wang
         given-names: Weihao
-      - family-names: Yao
-        given-names: Chengzhi
-      - family-names: Sha
-        given-names: Mo
-      - family-names: Sodhani
-        given-names: Shagun
-      - family-names: Abbeel
-        given-names: Pieter
-    title: "BitVLA: 1-bit Vision-Language-Action Models for Robotics Manipulation"
-    type: article
-    year: 2024
-    journal: "arXiv preprint arXiv:2506.07530"
