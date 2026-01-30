@@ -1,0 +1,28 @@
+{
+    "permissions": {
+          "allow": [
+                  "WebSearch",
+                  "Bash(cat:*)",
+                  "Bash(ls:*)",
+                  "Bash(find:*)",
+                  "Bash(echo:*)",
+                  "Bash(chmod:*)",
+                  "Bash(git add:*)",
+                  "Bash(git commit:*)",
+                  "Bash(git push:*)",
+                  "Bash(git branch:*)",
+                  "Bash(git worktree:*)",
+                  "Bash(gh issue list:*)",
+                  "Bash(gh issue view:*)",
+                  "Bash(gh run list:*)",
+                  "Bash(gh run view:*)",
+                  "Bash(tree:*)",
+                  "Bash(mkdir:*)",
+                  "WebFetch(domain:github.com)",
+                  "WebFetch(domain:docs.github.com)",
+                  "WebFetch(domain:www.anthropic.com)"
+          ],
+          "deny": [],
+          "ask": []
+    }
+}
